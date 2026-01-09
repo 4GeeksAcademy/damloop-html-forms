@@ -1,0 +1,13 @@
+Accesibilidad mejorada: uso correcto de label con for + id para que lectores de pantalla y usuarios de teclado puedan navegar el formulario sin problemas.
+
+CSS más limpio: eliminación de estilos duplicados y creación de clases reutilizables (sw-label, sw-input, etc.).
+
+Estructura semántica: separación del contenido en secciones mediante <section> y <header>/<footer> para una lectura más clara del documento.
+
+Código ordenado: indentación uniforme y estructura más legible.
+
+Inputs más precisos: uso de atributos semánticos como type="number", minlength, maxlength, step, etc., para mejorar validación y usabilidad.
+
+Menos ruido visual: eliminación de comentarios innecesarios y elementos redundantes.
+
+Escalabilidad: el CSS queda preparado para moverse fácilmente a un archivo externo si decides modularizar el proyecto.

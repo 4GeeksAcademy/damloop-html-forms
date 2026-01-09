@@ -4,47 +4,59 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Galactic Payment Form</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Fuente Star Wars -->
   <link href="https://fonts.cdnfonts.com/css/star-jedi" rel="stylesheet">
+
   <style>
     body {
-      background-color: #000; 
+      background-color: #000;
       color: #f8f9fa;
       font-family: 'Star Jedi', sans-serif;
       min-height: 100vh;
-      background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); 
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
     }
+
     .starwars-title {
       font-size: 1.8rem;
       color: #ffe81f;
       text-shadow: 0 0 15px #ffe81f;
     }
-    .form-label {
-      color: #ffe81f; 
+
+    .sw-label {
+      color: #ffe81f;
     }
-    .form-control, .form-select {
+
+    .sw-input {
       background-color: #111;
       color: #fff;
       border: 1px solid #ffe81f;
     }
-    .form-control::placeholder {
+
+    .sw-input::placeholder {
       color: #aaa;
     }
+
+    .btn-jedi,
+    .btn-sith {
+      border: none;
+      color: white;
+      font-weight: bold;
+    }
+
     .btn-jedi {
       background-color: #0d6efd;
-      border: none;
-      color: white;
-      font-weight: bold;
       box-shadow: 0 0 15px #0d6efd;
     }
+
     .btn-sith {
       background-color: #dc3545;
-      border: none;
-      color: white;
-      font-weight: bold;
       box-shadow: 0 0 15px #dc3545;
     }
+
     .alert-danger {
       background-color: #660000;
       border-color: #ff0000;
@@ -54,60 +66,67 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container-fluid px-4 py-4">
-    <div class="row mb-3">
+
+    <!-- Título -->
+    <header class="row mb-3">
       <div class="col-12 text-center">
         <div class="p-3 border bg-dark starwars-title">
           Galactic Credits Transfer
         </div>
       </div>
-    </div>
+    </header>
 
-    <div class="row">
+    <!-- Alerta -->
+    <section class="row">
       <div class="col-12">
         <div class="alert alert-danger py-2 px-3 border w-100 mx-auto mb-0" role="alert">
           ⚠️ Alert from the Empire — Check it out!
         </div>
       </div>
-    </div>
+    </section>
 
+    <!-- Formulario -->
     <form class="row g-3 mt-3" novalidate>
+
       <div class="col-12 col-lg-7">
-        <label class="form-label">Card</label>
-        <input type="text" class="form-control" placeholder="XXXXXXXXXXX" aria-label="Card" required>
+        <label for="card" class="sw-label">Card</label>
+        <input id="card" type="text" class="form-control sw-input" placeholder="XXXXXXXXXXX" required>
       </div>
 
       <div class="col-12 col-lg-2">
-        <label class="form-label">CVC</label>
-        <input type="text" class="form-control" placeholder="XXX" aria-label="CVC" required>
+        <label for="cvc" class="sw-label">CVC</label>
+        <input id="cvc" type="text" class="form-control sw-input" placeholder="XXX" minlength="3" maxlength="3" required>
       </div>
 
       <div class="col-12 col-lg-3">
-        <label class="form-label">Amount</label>
-        <input type="text" class="form-control" placeholder="0.00" aria-label="Amount" required>
+        <label for="amount" class="sw-label">Amount</label>
+        <input id="amount" type="number" class="form-control sw-input" placeholder="0.00" step="0.01" required>
       </div>
 
       <div class="col-12 col-lg-6">
-        <label class="form-label">First Name</label>
-        <input type="text" class="form-control" placeholder="Luke" aria-label="First Name" required>
+        <label for="firstname" class="sw-label">First Name</label>
+        <input id="firstname" type="text" class="form-control sw-input" placeholder="Luke" required>
       </div>
 
       <div class="col-12 col-lg-6">
-        <label class="form-label">Last Name</label>
-        <input type="text" class="form-control" placeholder="Skywalker" aria-label="Second Name" required>
+        <label for="lastname" class="sw-label">Last Name</label>
+        <input id="lastname" type="text" class="form-control sw-input" placeholder="Skywalker" required>
       </div>
 
       <div class="col-12">
         <div class="row g-2">
+
           <div class="col-12 col-md-6">
-            <label class="form-label">City</label>
-            <input type="text" class="form-control" placeholder="Mos Eisley" aria-label="City" required>
+            <label for="city" class="sw-label">City</label>
+            <input id="city" type="text" class="form-control sw-input" placeholder="Mos Eisley" required>
           </div>
 
           <div class="col-6 col-md-3">
-            <label class="form-label">Planet</label>
-            <select class="form-select" aria-label="Planet" required>
+            <label for="planet" class="sw-label">Planet</label>
+            <select id="planet" class="form-select sw-input" required>
               <option value="">Choose...</option>
               <option value="tatooine">🌵 Tatooine</option>
               <option value="coruscant">🏙️ Coruscant</option>
@@ -119,61 +138,57 @@
           </div>
 
           <div class="col-6 col-md-3">
-            <label class="form-label">Zip</label>
-            <input type="text" class="form-control" placeholder="1138" aria-label="Zip" required>
+            <label for="zip" class="sw-label">Zip</label>
+            <input id="zip" type="text" class="form-control sw-input" placeholder="1138" required>
           </div>
+
         </div>
       </div>
     </form>
-    
 
+    <!-- Radios + Mensaje -->
+    <section class="container mt-4">
+      <div class="row mb-3 align-items-center">
 
+        <div class="col-auto">
+          <label class="sw-label mb-0">Choose your Star Wars side:</label>
+        </div>
 
-    
-<div class="container mt-4">
-  <div class="row mb-3 align-items-center">
-    <!-- Etiqueta de Star Wars -->
-    <div class="col-auto">
-      <label class="form-label mb-0">Choose your Star Wars side:</label>
-    </div>
-    <!-- Radios en línea -->
-    <div class="col-auto d-flex gap-3">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="starwars" id="jedi" value="jedi">
-        <label class="form-check-label" for="jedi">⚔️ Jedi</label>
+        <div class="col-auto d-flex gap-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="starwars" id="jedi" value="jedi">
+            <label class="form-check-label" for="jedi">⚔️ Jedi</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="starwars" id="sith" value="sith">
+            <label class="form-check-label" for="sith">🔥 Sith</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="starwars" id="rebel" value="rebel">
+            <label class="form-check-label" for="rebel">🚀 Rebel</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="starwars" id="empire" value="empire">
+            <label class="form-check-label" for="empire">🛸 Empire</label>
+          </div>
+        </div>
+
+        <div class="col-auto">
+          <label for="message" class="sw-label mb-0">Message</label>
+        </div>
+
+        <div class="col">
+          <input id="message" type="text" class="form-control sw-input" placeholder="Add any notes here">
+        </div>
+
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="starwars" id="sith" value="sith">
-        <label class="form-check-label" for="sith">🔥 Sith</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="starwars" id="rebel" value="rebel">
-        <label class="form-check-label" for="rebel">🚀 Rebel</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="starwars" id="empire" value="empire">
-        <label class="form-check-label" for="empire">🛸 Empire</label>
-      </div>
-    </div>
+    </section>
 
-    <!-- Etiqueta de Message -->
-    <div class="col-auto">
-      <label for="exampleFormControlTextarea1" class="form-label mb-0">Message</label>
-    </div>
-    <!-- Campo de texto -->
-    <div class="col">
-      <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Add any notes here">
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-    <div class="container-fluid px-4 text-center mt-4">
+    <!-- Botones -->
+    <footer class="container-fluid px-4 text-center mt-4">
       <div class="row">
         <div class="col">
           <div class="p-3 border bg-dark d-flex justify-content-end gap-2">
@@ -181,15 +196,9 @@
             <button type="button" class="btn btn-jedi">Transmit to the Empire</button>
           </div>
         </div>
-
-
-
-
-
-
-
       </div>
-    </div>
+    </footer>
+
   </div>
 </body>
 </html>
